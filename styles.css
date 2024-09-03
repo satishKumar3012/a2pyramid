@@ -101,6 +101,36 @@ header {
     padding: 60px 0;
 }
 
+.parent_section_link{
+    text-align: center;
+}
+.hero_join_btn {
+    padding: 15px 30px; /* Adjust padding for better proportions */
+    color: white;
+    font-size: 1.6rem;
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient background */
+    border-radius: 8px; /* Slightly rounded corners */
+    text-align: center;
+    border: none;
+    display: inline-block;
+    text-decoration: none; /* Remove underline from link */
+    font-weight: bold; /* Make text bold */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.hero_join_btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003d7a); /* Darker gradient on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.hero_join_btn:active {
+    background: linear-gradient(135deg, #003d7a, #0056b3); /* Even darker gradient when clicked */
+    transform: translateY(1px); /* Slight depression effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Lighter shadow when clicked */
+}
+
 .hero-content {
     display: flex;
     justify-content: space-around;
