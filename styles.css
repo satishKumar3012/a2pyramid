@@ -10,6 +10,10 @@ body, h1, h2, h3, p, ul, li, input, textarea, button {
     font-style: normal;
 }
 
+button{
+    background: linear-gradient(90deg, #4a90e2, #d75b79);
+}
+
 /* Base styles */
 body {
     font-family: 'Arial', sans-serif;
@@ -165,6 +169,7 @@ h3 {
     font-weight: 900;
     text-decoration: underline;
 }
+
 
 .about_para{
     margin: 20px 12px;
@@ -407,7 +412,8 @@ footer {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #f39c12;
+    /* background: #f39c12; */
+    background: linear-gradient(90deg, #4a90e2, #d75b79);
     color: #fff;
     border: none;
     border-radius: 8px;
