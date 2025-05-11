@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import DoubtSolver from './pages/DoubtSolver';
 import ExamPaperGenerator from './pages/ExamPaperGenerator';
 import SmartQuizGenerator from './pages/SmartQuizGenerator';
