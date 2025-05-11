@@ -1,0 +1,45 @@
+.layout {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Sidebar width already occupies space, so main content shifts */
+  .main-content {
+    margin-left: 240px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar {
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .page-content {
+    padding: 20px;
+    background-color: #f5f7fa;
+    min-height: calc(100vh - 60px); /* adjust based on navbar */
+    overflow-y: auto;
+  }
+  
+  /* Mobile responsive behavior */
+  @media (max-width: 768px) {
+    .layout {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+  
+    .main-content {
+      margin-left: 0;
+    }
+  }
+  
