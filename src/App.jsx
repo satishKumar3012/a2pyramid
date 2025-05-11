@@ -73,13 +73,13 @@ const Layout = ({ children }) => {
           <main style={{ padding: '20px' }}>
             <h1>Welcome to the AI Smart Class Dashboard 🚀</h1>
             <ButtonContainer>
-              <a href="/ai-smart-class" style={{ textDecoration: 'none' }}>
+              <a href="#/ai-smart-class" style={{ textDecoration: 'none' }}>
                 <Button>Home</Button>
               </a>
-              <a href="/about-ai-smart-class" style={{ textDecoration: 'none' }}>
+              <a href="#/about-ai-smart-class" style={{ textDecoration: 'none' }}>
                 <Button>About</Button>
               </a>
-              <a href="/contact-ai-smart-class" style={{ textDecoration: 'none' }}>
+              <a href="#/contact-ai-smart-class" style={{ textDecoration: 'none' }}>
                 <Button>Contact</Button>
               </a>
             </ButtonContainer>

@@ -140,10 +140,10 @@ const HomePage = () => {
       <Paragraph>Explore our features:</Paragraph>
 
       <FeatureList>
-        <FeatureButton href="/doubt-solver">Doubt Solving Assistant 🤔</FeatureButton>
-        <FeatureButton href="/exam-paper-generator">Exam Paper Generator 📝</FeatureButton>
-        <FeatureButton href="/smart-quiz-generator">Smart Quiz Generator 🎯</FeatureButton>
-        <FeatureButton href="/revision-planner">Revision Planner 📚</FeatureButton>
+        <FeatureButton href="#/doubt-solver">Doubt Solving Assistant 🤔</FeatureButton>
+        <FeatureButton href="#/exam-paper-generator">Exam Paper Generator 📝</FeatureButton>
+        <FeatureButton href="#/smart-quiz-generator">Smart Quiz Generator 🎯</FeatureButton>
+        <FeatureButton href="#/revision-planner">Revision Planner 📚</FeatureButton>
       </FeatureList>
 
       <InfoSection>
