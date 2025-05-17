@@ -98,7 +98,7 @@ const EdutechErrorPage = () => {
       />
       <ErrorHeading>Page not found</ErrorHeading>
       <ErrorText>The page you are requesting does not exist.</ErrorText>
-      <Link to="/edutech">
+      <Link to="#/edutech">
         <HomeButton>Go to HomePage</HomeButton>
       </Link>
     </ErrorWrapper>
