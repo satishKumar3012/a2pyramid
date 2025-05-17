@@ -115,7 +115,7 @@ const Navbar = () => {
 
   return (
     <NavbarContainer>
-      <a href='/ai-smart-class' style={{ color: "white", textDecoration: "none" }}>
+      <a href='#/ai-smart-class' style={{ color: "white", textDecoration: "none" }}>
         {/* <a href logo = public/logoai.jpg */}
         <Logo>AI Smart Class</Logo>
         

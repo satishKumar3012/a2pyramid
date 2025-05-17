@@ -103,7 +103,7 @@ const Home = () => {
     <FullScreenContainer>
       <ContentWrapper>
         <Cards>
-          <SectionCard onClick={() => navigate('#/edutech')}>
+          <SectionCard onClick={() => navigate('/edutech')}>
             <CardTitle>Edutech</CardTitle>
             <CardDescription>
               <li>AI/ML Training</li>
@@ -113,7 +113,7 @@ const Home = () => {
             </CardDescription>
           </SectionCard>
 
-          <SectionCard onClick={() => navigate('#/ai-smart-class')}>
+          <SectionCard onClick={() => navigate('/ai-smart-class')}>
             <CardTitle>AI Smart Class</CardTitle>
             <CardDescription>
               <li>AI Assistant Chatbot</li>
