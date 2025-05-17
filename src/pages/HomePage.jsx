@@ -151,7 +151,7 @@ const HomePage = () => {
             <h3>About</h3>
             <ul>
               <li><strong>AI Smart Class</strong> revolutionizes learning with powerful AI tools for students and teachers alike.</li>
-              <li><a href="/about-ai-smart-class">Learn more →</a></li>
+              <li><a href="#/about-ai-smart-class">Learn more →</a></li>
             </ul>
           </div>
 

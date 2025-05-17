@@ -172,30 +172,3 @@ function App() {
 export default App;
 
 
-
-//  <Route path="/" element={<Home />} />
-//           <Route path="/#/edutech" element={<EdutechHome />} />
-//           <Route path="/#/edutech/#/about" element={<EdutechAbout />} />
-//           <Route path="/#/edutech/#/contact" element={<EdutechContact />} />
-//           <Route path="/#/ai-smart-class" element={<HomePage />} />
-//           <Route path="/#/ai-smart-class/#/about-ai-smart-class" element={<AboutAISmart />} />
-//           <Route path="/#/ai-smart-class/#/contact-ai-smart-class" element={<ContactAISmart />} />
-//           <Route path="/#/ai-smart-class/#/doubt-solver" element={<DoubtSolver />} />
-//           <Route path="/#/ai-smart-class/#/exam-paper-generator" element={<ExamPaperGenerator />} />
-//           <Route path="/#/ai-smart-class/#/smart-quiz-generator" element={<SmartQuizGenerator />} />
-//           <Route path="/#/ai-smart-class/#/performance-metrics" element={<PerformanceMetrics />} />
-
-//           {/* gamified classroom links */}
-//           <Route path="/gamified-classroom" element={<GamifiedClassroom />} />
-//           <Route path="/gamified-classroom-play-quiz" element={<QuizPlay />} />
-//           <Route path="/gamified-classroom-result" element={<QuizResult />} />
-//           <Route path="/gamified-classroom-quiz-home" element={<QuizHome />} />
-//           <Route path="/gamified-classroom-quiz-stats" element={<QuizStats />} />
-//           <Route path="/gamified-classroom-missed-quiz" element={<MissedQuiz />} />
-
-
-//           <Route path="/mental-health-support" element={<MentalHealthSupport />} />
-//           <Route path="/skill-progress-tracking" element={<SkillProgressTracking />} />
-//           <Route path="/attendance-report" element={<AttendanceReport />} />
-//           <Route path="/revision-planner" element={<RevisionPlannerPage />} />
-//           <Route path="/#/*" element={<NotFound />} />

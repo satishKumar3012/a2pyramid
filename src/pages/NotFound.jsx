@@ -88,7 +88,7 @@ const NotFound = () => {
       />
       <h1>404 - Page Not Found</h1>
       <p>Oops! The page you're looking for doesn't exist or has been moved.</p>
-      <Link to="/ai-smart-class">← Go Back to Homepage</Link>
+      <Link to="#/ai-smart-class">← Go Back to Homepage</Link>
     </NotFoundWrapper>
   );
 };

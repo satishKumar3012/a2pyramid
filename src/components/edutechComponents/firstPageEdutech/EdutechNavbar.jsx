@@ -147,15 +147,15 @@ const EdutechNavbar = () => {
   return (
     <NavbarContainer>
       <NavbarWrapper>
-        <Logo href="/edutech">
+        <Logo href="#/edutech">
           <img src="/img/logo2.png" alt="Logo" />
           Pyramid
         </Logo>
 
         <NavLinks>
-          <NavLink href="/edutech">Home</NavLink>
-          <NavLink href="/edutech/about">About</NavLink>
-          <NavLink href="/edutech/contact">Contact</NavLink>
+          <NavLink href="#/edutech">Home</NavLink>
+          <NavLink href="#/edutech/about">About</NavLink>
+          <NavLink href="#/edutech/contact">Contact</NavLink>
 
           <SearchContainer>
             <SearchInput type="text" placeholder="Search" />
@@ -171,9 +171,9 @@ const EdutechNavbar = () => {
       </NavbarWrapper>
 
       <MobileMenu open={mobileOpen}>
-        <NavLink href="/edutech" onClick={closeMobileMenu}>Home</NavLink>
-        <NavLink href="/edutech/about" onClick={closeMobileMenu}>About</NavLink>
-        <NavLink href="/edutech/contact" onClick={closeMobileMenu}>Contact</NavLink>
+        <NavLink href="#/edutech" onClick={closeMobileMenu}>Home</NavLink>
+        <NavLink href="#/edutech/about" onClick={closeMobileMenu}>About</NavLink>
+        <NavLink href="#/edutech/contact" onClick={closeMobileMenu}>Contact</NavLink>
       </MobileMenu>
     </NavbarContainer>
   );

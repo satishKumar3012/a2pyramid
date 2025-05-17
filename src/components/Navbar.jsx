@@ -132,15 +132,15 @@ const Navbar = () => {
           </button>
           {dropdownOpen && (
             <ul className="dropdown-menu">
-              <li><a href="/doubt-solver">Doubt Solver</a></li>
-              <li><a href="/exam-paper-generator">Exam Paper Generator</a></li>
-              <li><a href="/smart-quiz-generator">Smart Quiz Generator</a></li>
-              <li><a href="/revision-planner">Revision Planner</a></li>
-              <li><a href="/gamified-classroom">Gamified Classroom</a></li>
-              <li><a href="/performance-metrics">Performance Metrics</a></li>
-              <li><a href="/mental-health-support">Mental Health Support</a></li>
-              <li><a href="/skill-progress-tracking">Skill Progress Tracking</a></li>
-              <li><a href="/attendance-report">Attendance Report</a></li>
+              <li><a href="#/doubt-solver">Doubt Solver</a></li>
+              <li><a href="#/exam-paper-generator">Exam Paper Generator</a></li>
+              <li><a href="#/smart-quiz-generator">Smart Quiz Generator</a></li>
+              <li><a href="#/revision-planner">Revision Planner</a></li>
+              {/* <li><a href="#/gamified-classroom">Gamified Classroom</a></li>
+              <li><a href="#/performance-metrics">Performance Metrics</a></li>
+              <li><a href="#/mental-health-support">Mental Health Support</a></li>
+              <li><a href="#/skill-progress-tracking">Skill Progress Tracking</a></li>
+              <li><a href="#/attendance-report">Attendance Report</a></li> */}
             </ul>
           )}
         </Dropdown>
