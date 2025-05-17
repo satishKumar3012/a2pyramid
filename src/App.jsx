@@ -20,11 +20,24 @@ import Home from './pages/Home';
 import EdutechHome from './pages/Edutech/EdutechHome';
 import EdutechAbout from './pages/Edutech/EdutechAbout';
 import EdutechContact from './pages/Edutech/EdutechContact';
-import QuizPlay from './pages/GamifiedClassroom/QuizPlay';
-import QuizResult from './pages/GamifiedClassroom/QuizResult';
-import QuizHome from './pages/GamifiedClassroom/QuizHome';
-import QuizStats from './pages/GamifiedClassroom/QuizStats';
-import MissedQuiz from './pages/GamifiedClassroom/MissedQuiz';
+
+
+// Edutech first page components links
+// import EdutechHeader from './components/edutechComponents/firstPageEdutech/EdutechHeader';
+// import EdutechNavbar from './components/edutechComponents/homeComponents/EdutechNavbar';
+import EdutechHeroSection from './components/edutechComponents/firstPageEdutech/EdutechHeroSection';
+import EdutechNavbar from './components/edutechComponents/firstPageEdutech/EdutechNavbar';
+import EdutechFloatingContactButton from './components/edutechComponents/firstPageEdutech/EdutechFloatingContactButton';
+import EdutechChatBot from './components/edutechComponents/firstPageEdutech/EdutechChatbot';
+import EdutechCollaborationSection from './components/edutechComponents/firstPageEdutech/EdutechCollaborationSection';
+import EdutechCourses from './components/edutechComponents/firstPageEdutech/EdutechCourses';
+import EdutechVoiceOfSuccess from './components/edutechComponents/firstPageEdutech/EdutechVoiceOfSuccess';
+import EdutechFeaturedCourses from './components/edutechComponents/firstPageEdutech/EdutechFeaturedCourses';
+import EdutechMeetOurInstructors from './components/edutechComponents/firstPageEdutech/EdutechMeetOurInstructors';
+import EdutechFAQAccordion from './components/edutechComponents/firstPageEdutech/EdutechFAQAccordion';
+import EdutechJoinNow from './components/edutechComponents/firstPageEdutech/EdutechJoinNow';
+import EdutechFooter from './components/edutechComponents/firstPageEdutech/EdutechFooter';
+import EdutechErrorPage from './components/edutechComponents/EdutechErrorPage';
 
 const Button = styled.button`
   padding: 12px 24px;
@@ -98,9 +111,40 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/edutech" element={<EdutechHome />} />
+          {/* <Route path="/edutech" element={<EdutechHome />} /> */}
           <Route path="/edutech/about" element={<EdutechAbout />} />
           <Route path="/edutech/contact" element={<EdutechContact />} />
+
+{/* Edutech First pages links */}
+           <Route 
+          path="/edutech" 
+          element={
+            <>
+              {/* <EdutechHeader /> */}
+              <EdutechNavbar />
+              <EdutechHeroSection />
+              {/* <EdutechFloatingContactButton /> */}
+              {/* <EdutechChatBot /> */}
+              <EdutechCollaborationSection />
+              <EdutechCourses />
+              <EdutechVoiceOfSuccess />
+              {/* <FeaturedPrograms /> */}
+              <EdutechFeaturedCourses />
+              <EdutechMeetOurInstructors />
+              <EdutechFAQAccordion />
+              <EdutechJoinNow />
+              {/* <EdutechFooter /> */}
+            </>
+          } 
+        />
+
+
+        {/* edutech error page */}
+          <Route path='/edutech/*' element={<>
+          <EdutechNavbar />
+          <EdutechErrorPage />
+          </>} />
+
           <Route path="/ai-smart-class" element={<HomePage />} />
           <Route path="/about-ai-smart-class" element={<AboutAISmart />} />
           <Route path="/contact-ai-smart-class" element={<ContactAISmart />} />
@@ -111,11 +155,7 @@ function App() {
 
           {/* gamified classroom links */}
           <Route path="/gamified-classroom" element={<GamifiedClassroom />} />
-          <Route path="/gamified-classroom-play-quiz" element={<QuizPlay />} />
-          <Route path="/gamified-classroom-result" element={<QuizResult />} />
-          <Route path="/gamified-classroom-quiz-home" element={<QuizHome />} />
-          <Route path="/gamified-classroom-quiz-stats" element={<QuizStats />} />
-          <Route path="/gamified-classroom-missed-quiz" element={<MissedQuiz />} />
+          
 
 
           <Route path="/mental-health-support" element={<MentalHealthSupport />} />
@@ -130,3 +170,32 @@ function App() {
 }
 
 export default App;
+
+
+
+//  <Route path="/" element={<Home />} />
+//           <Route path="/#/edutech" element={<EdutechHome />} />
+//           <Route path="/#/edutech/#/about" element={<EdutechAbout />} />
+//           <Route path="/#/edutech/#/contact" element={<EdutechContact />} />
+//           <Route path="/#/ai-smart-class" element={<HomePage />} />
+//           <Route path="/#/ai-smart-class/#/about-ai-smart-class" element={<AboutAISmart />} />
+//           <Route path="/#/ai-smart-class/#/contact-ai-smart-class" element={<ContactAISmart />} />
+//           <Route path="/#/ai-smart-class/#/doubt-solver" element={<DoubtSolver />} />
+//           <Route path="/#/ai-smart-class/#/exam-paper-generator" element={<ExamPaperGenerator />} />
+//           <Route path="/#/ai-smart-class/#/smart-quiz-generator" element={<SmartQuizGenerator />} />
+//           <Route path="/#/ai-smart-class/#/performance-metrics" element={<PerformanceMetrics />} />
+
+//           {/* gamified classroom links */}
+//           <Route path="/gamified-classroom" element={<GamifiedClassroom />} />
+//           <Route path="/gamified-classroom-play-quiz" element={<QuizPlay />} />
+//           <Route path="/gamified-classroom-result" element={<QuizResult />} />
+//           <Route path="/gamified-classroom-quiz-home" element={<QuizHome />} />
+//           <Route path="/gamified-classroom-quiz-stats" element={<QuizStats />} />
+//           <Route path="/gamified-classroom-missed-quiz" element={<MissedQuiz />} />
+
+
+//           <Route path="/mental-health-support" element={<MentalHealthSupport />} />
+//           <Route path="/skill-progress-tracking" element={<SkillProgressTracking />} />
+//           <Route path="/attendance-report" element={<AttendanceReport />} />
+//           <Route path="/revision-planner" element={<RevisionPlannerPage />} />
+//           <Route path="/#/*" element={<NotFound />} />

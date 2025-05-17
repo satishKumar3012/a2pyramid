@@ -123,7 +123,7 @@ const RevisionPlannerPage = () => {
 
   return (
     <Container>
-      <Title>Generate Revision Planner</Title>
+      <Title>📚 Generate Revision Planner</Title>
 
       <InputGroup>
         <Input

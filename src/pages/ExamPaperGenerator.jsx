@@ -150,7 +150,7 @@ const ExamGenerator = () => {
 
   return (
     <Container>
-      <Title>Generate Exam Paper</Title>
+      <Title>📝 Generate Exam Paper</Title>
 
       <InputGroup>
         <Input

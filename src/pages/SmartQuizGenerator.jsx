@@ -79,7 +79,7 @@ const QuizCard = styled.div`
   background-color: #f8f9fa;
   border: 1px solid #ddd;
   border-radius: 12px;
-  padding: 1rem;
+  padding: 1rem; 
   margin-bottom: 1rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   white-space: pre-wrap;
@@ -107,7 +107,7 @@ const SmartQuizGenerator = () => {
 
   return (
     <Container>
-      <Title>Smart Quiz Generator</Title>
+      <Title>🎯 Smart Quiz Generator</Title>
 
       <InputGroup>
         <Input

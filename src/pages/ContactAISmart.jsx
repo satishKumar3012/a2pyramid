@@ -4,12 +4,11 @@ import { FaInstagram, FaYoutube, FaLinkedin } from 'react-icons/fa';
 
 const ContactWrapper = styled.section`
   font-family: 'Poppins', sans-serif;
-  background: #f8f9fa;
-  padding: 4rem 2rem;
-  color: #333;
+  background: linear-gradient(145deg, #f2f4f8, #ffffff);
+  padding: 5rem 2rem;
 
   @media (max-width: 768px) {
-    padding: 2rem 1rem;
+    padding: 3rem 1rem;
   }
 `;
 
@@ -19,17 +18,17 @@ const Container = styled.div`
 `;
 
 const Heading = styled.h2`
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 3rem;
+  margin-bottom: 2rem;
   color: #2c3e50;
   text-align: center;
+  font-weight: 700;
 `;
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  margin-top: 2rem;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -37,25 +36,32 @@ const Grid = styled.div`
 `;
 
 const ContactDetails = styled.div`
-  background: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
 `;
 
 const InfoGroup = styled.div`
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 
   h4 {
     color: #4b8df8;
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
-    font-size: 1.2rem;
+    font-weight: 600;
   }
 
   p, a {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: #333;
-    margin: 0.2rem 0;
+    margin: 0.3rem 0;
+    display: block;
     text-decoration: none;
     transition: color 0.3s ease;
 
@@ -68,16 +74,16 @@ const InfoGroup = styled.div`
 const SocialIcons = styled.div`
   margin-top: 1rem;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 
   a {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #555;
     transition: transform 0.2s, color 0.3s;
 
     &:hover {
       color: #0077cc;
-      transform: scale(1.1);
+      transform: scale(1.15);
     }
   }
 `;
@@ -85,8 +91,9 @@ const SocialIcons = styled.div`
 const MapWrapper = styled.div`
   width: 100%;
   height: 400px;
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 
   iframe {
     width: 100%;
@@ -95,32 +102,35 @@ const MapWrapper = styled.div`
   }
 `;
 
-
+const Highlight = styled.span`
+  color: #4b8df8;
+  font-weight: 600;
+`;
 
 const ContactAISmart = () => {
   return (
     <ContactWrapper>
       <Container>
-        <Heading>Contact Us</Heading>
+        <Heading>Contact <Highlight>AI Smart Class</Highlight></Heading>
         <Grid>
           <ContactDetails>
             <InfoGroup>
-              <h4>Phone</h4>
+              <h4>📞 Phone</h4>
               <p>+91 9472994483</p>
               <p>+91 9608049406</p>
             </InfoGroup>
 
             <InfoGroup>
-              <h4>Email</h4>
-              <p>studypyramid@gmail.com</p>
+              <h4>📧 Email</h4>
+              <a href="mailto:studypyramid@gmail.com">studypyramid@gmail.com</a>
             </InfoGroup>
 
             <InfoGroup>
-              <h4>Follow Us</h4>
+              <h4>🔗 Follow Us</h4>
               <SocialIcons>
-                <a href="https://instagram.com" target="_blank" rel="noreferrer"><FaInstagram /></a>
-                <a href="https://youtube.com" target="_blank" rel="noreferrer"><FaYoutube /></a>
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+                <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a>
+                <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube"><FaYoutube /></a>
+                <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
               </SocialIcons>
             </InfoGroup>
           </ContactDetails>
@@ -133,10 +143,8 @@ const ContactAISmart = () => {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
-            </MapWrapper>
+          </MapWrapper>
         </Grid>
-
-      
       </Container>
     </ContactWrapper>
   );

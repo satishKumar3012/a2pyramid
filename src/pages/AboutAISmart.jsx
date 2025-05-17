@@ -2,64 +2,127 @@ import React from 'react';
 import styled from 'styled-components';
 
 const AboutContainer = styled.div`
-  padding: 60px 20px;
+  padding: 80px 20px;
   max-width: 1200px;
   margin: auto;
-  color: #333;
+  color: #1e1e1e;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7;
+
+  @media (max-width: 768px) {
+    padding: 60px 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 10px;
+  }
 `;
 
 const Section = styled.section`
-  margin-bottom: 60px;
+  margin-bottom: 70px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 40px;
+  }
 `;
 
 const Heading = styled.h2`
-  font-size: 2.5rem;
-  color: #2c3e50;
-  margin-bottom: 20px;
+  font-size: 3rem;
+  color: #1a237e;
+  margin-bottom: 40px;
   text-align: center;
+  font-weight: 700;
+
+  @media (max-width: 768px) {
+    font-size: 2.4rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
 `;
 
 const SubHeading = styled.h3`
-  font-size: 1.8rem;
-  color: #34495e;
-  margin-bottom: 15px;
+  font-size: 2rem;
+  color: #283593;
+  margin-bottom: 20px;
+  font-weight: 600;
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.4rem;
+  }
 `;
 
 const Paragraph = styled.p`
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #555;
-  margin-bottom: 15px;
+  font-size: 1.15rem;
+  color: #444;
+  margin-bottom: 18px;
+
+  @media (max-width: 768px) {
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 const List = styled.ul`
   list-style-type: disc;
-  padding-left: 20px;
-  color: #555;
+  padding-left: 25px;
+  color: #444;
 `;
 
 const ListItem = styled.li`
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+
+  strong {
+    color: #1a237e;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 const CTASection = styled.div`
   text-align: center;
-  margin-top: 40px;
+  margin-top: 60px;
 `;
 
 const CTAButton = styled.a`
   display: inline-block;
-  padding: 12px 24px;
-  background-color: #4B8DF8;
+  padding: 14px 32px;
+  background-color: #1a73e8;
   color: #fff;
-  border-radius: 8px;
+  border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
 
   &:hover {
-    background-color: #2e6cd1;
+    background-color: #0f5bd8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px 24px;
+    font-size: 1rem;
   }
 `;
 

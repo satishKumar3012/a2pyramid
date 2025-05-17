@@ -9,62 +9,62 @@ const Main = styled.main`
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   @media (max-width: 768px) {
-    padding: 1.2rem;
+    padding: 1.5rem;
   }
-`;
-
-const Paragraph = styled.p`
-  font-size: 1.2rem;
-  font-weight: 400;
-  font-family: Verdana;
-  color: rgb(144, 112, 195);
-  margin-bottom: 0.8rem;
-  margin-top: 0.5rem;
-  text-align: justify;
 
   @media (max-width: 480px) {
-    font-size: 1rem;
-    text-align: center;
+    padding: 1rem;
   }
 `;
 
-const FeatureList = styled.div`
+const Heading = styled.h1`
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #4b3c88;
+
+  @media (max-width: 480px) {
+    font-size: 1.6rem;
+  }
+`;
+
+const FeatureList = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  margin: 1.5rem 0;
+  gap: 1.2rem;
+  margin-bottom: 3rem;
 `;
 
 const FeatureButton = styled.a`
-  display: inline-block;
-  padding: 3rem 2rem;
-  background-color: rgb(70, 101, 76);
-  color: white;
+  flex: 1 1 220px;
+  max-width: 280px;
+  padding: 2rem;
+  background-color: #464d77;
+  color: #fff;
   border-radius: 10px;
   text-decoration: none;
   font-size: 1.1rem;
   text-align: center;
-  transition: background-color 0.3s ease;
-  min-width: 220px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    background-color: rgb(31, 204, 57);
+    background-color: #2ecc71;
+    transform: translateY(-3px);
   }
 
   @media (max-width: 480px) {
     font-size: 1rem;
-    padding: 1.2rem;
-    width: 100%;
+    padding: 1.5rem;
   }
 `;
 
 const InfoSection = styled.section`
-  margin-top: 3rem;
-  padding: 2rem;
-  background-color: #f9f9fb;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background-color: #f4f4f8;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
 `;
 
 const InfoList = styled.div`
@@ -72,21 +72,20 @@ const InfoList = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 2rem;
-  color: #333;
 
   @media (max-width: 768px) {
     flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 1.5rem;
   }
 
   .info-column {
     flex: 1;
-    min-width: 250px;
+    min-width: 260px;
 
     h3 {
+      font-size: 1.3rem;
       margin-bottom: 1rem;
-      font-size: 1.2rem;
       color: #2c3e50;
     }
 
@@ -95,9 +94,10 @@ const InfoList = styled.div`
       padding: 0;
 
       li {
-        margin-bottom: 0.5rem;
-        line-height: 1.5;
         font-size: 1rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.6;
+        color: #555;
 
         a {
           color: #0077cc;
@@ -116,28 +116,27 @@ const SocialIcons = styled.div`
   display: flex;
   gap: 1.2rem;
   margin-top: 0.5rem;
+  justify-content: flex-start;
 
   a {
-    color: #444;
+    color: #555;
     font-size: 1.5rem;
+    transition: color 0.3s ease;
 
     &:hover {
       color: #0077cc;
     }
   }
 
-  justify-content: flex-start;
-
   @media (max-width: 768px) {
     justify-content: center;
   }
 `;
 
-
 const HomePage = () => {
   return (
     <Main>
-      <Paragraph>Explore our features:</Paragraph>
+      <Heading>Explore Our AI-Powered Features</Heading>
 
       <FeatureList>
         <FeatureButton href="#/doubt-solver">Doubt Solving Assistant 🤔</FeatureButton>
@@ -151,15 +150,15 @@ const HomePage = () => {
           <div className="info-column">
             <h3>About</h3>
             <ul>
-              <li><strong>AI Smart Class:</strong> Revolutionizing education through AI-driven tools for better learning and teaching.</li>
-              <li><a href="/about-ai-smart-class">Learn more on our About Us page →</a></li>
+              <li><strong>AI Smart Class</strong> revolutionizes learning with powerful AI tools for students and teachers alike.</li>
+              <li><a href="/about-ai-smart-class">Learn more →</a></li>
             </ul>
           </div>
 
           <div className="info-column">
             <h3>Contact</h3>
             <ul>
-              <li>📍 Bailey Road, Patna Bihar, India</li>
+              <li>📍 Bailey Road, Patna, Bihar, India</li>
               <li>📞 +91-9472994483</li>
               <li>📧 <a href="mailto:studypyramid@gmail.com">studypyramid@gmail.com</a></li>
             </ul>
@@ -175,8 +174,6 @@ const HomePage = () => {
           </div>
         </InfoList>
       </InfoSection>
-
-     
     </Main>
   );
 };
