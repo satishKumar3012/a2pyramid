@@ -20,6 +20,7 @@ import Home from './pages/Home';
 import EdutechHome from './pages/Edutech/EdutechHome';
 import EdutechAbout from './pages/Edutech/EdutechAbout';
 import EdutechContact from './pages/Edutech/EdutechContact';
+import TempLogin from './components/TempLogin';
 
 
 // Edutech first page components links
@@ -76,7 +77,8 @@ const Layout = ({ children }) => {
   const path = location.pathname; // === '/' || location.pathname === '/edutech';
 
   const shouldHideDashboardLayout =
-    path === '/' || path.startsWith('/edutech');
+    path === '/' || path.startsWith('/edutech')|| path === "/ai-smart-login";
+
 
   return (
     <>
@@ -162,6 +164,7 @@ function App() {
           <Route path="/skill-progress-tracking" element={<SkillProgressTracking />} />
           <Route path="/attendance-report" element={<AttendanceReport />} />
           <Route path="/revision-planner" element={<RevisionPlannerPage />} />
+          <Route path="/ai-smart-login" element={<TempLogin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

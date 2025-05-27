@@ -113,7 +113,7 @@ const Home = () => {
             </CardDescription>
           </SectionCard>
 
-          <SectionCard onClick={() => navigate('/ai-smart-class')}>
+          <SectionCard onClick={() => navigate('/ai-smart-login')}>
             <CardTitle>AI Smart Class</CardTitle>
             <CardDescription>
               <li>AI Assistant Chatbot</li>
