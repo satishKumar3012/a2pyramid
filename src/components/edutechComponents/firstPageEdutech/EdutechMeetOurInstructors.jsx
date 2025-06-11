@@ -6,7 +6,7 @@ const instructors = [
   { name: 'Satish Kumar', role: 'CTO, A2 Pyramid', image: '/img/satish.PNG', bio: 'With a keen eye for design, Satish helps students understand the principles of UI/UX and how to create user-friendly applications.' },
   { name: 'Keshav Nair', role: 'COO, A2 Pyramid', image: '/img/keshav.PNG', bio: 'Keshav focuses on teaching the fundamentals of machine learning, from theory to practical implementations in real-world projects.' },
   { name: 'Ankit Dwivedi', role: 'Full-Stack Developer', image: '/img/ankit.jpg', bio: 'Ankit Dwivedi has over 1 year of experience in full-stack development and has worked with various technologies, including React, Node.js, and MongoDB.' },
-  { name: 'Yuvraj Maheswari', role: 'ML / Web Dev', image: '/img/yuvraj.jpg', bio: 'A promising new devloper with strong potential for growth and exploration in the field.' },
+  { name: 'Yuvraj Maheshwari', role: 'ML / Web Dev', image: '/img/yuvraj.jpg', bio: 'A promising new devloper with strong potential for growth and exploration in the field.' },
   { name: 'Sanya Gupta', role: 'ML Intern', image: '/img/sanya_bg_rmv.jpg', bio: 'New ML intern with strong potential for growth. Hard working and punctual in work.' },
   // duplicate entries removed for brevity
 ];
