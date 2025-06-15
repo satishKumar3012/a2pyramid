@@ -39,6 +39,8 @@ import EdutechFAQAccordion from './components/edutechComponents/firstPageEdutech
 import EdutechJoinNow from './components/edutechComponents/firstPageEdutech/EdutechJoinNow';
 import EdutechFooter from './components/edutechComponents/firstPageEdutech/EdutechFooter';
 import EdutechErrorPage from './components/edutechComponents/EdutechErrorPage';
+// private route
+import PrivateRoute from "./components/PrivateRoute";
 
 const Button = styled.button`
   padding: 12px 24px;
@@ -150,7 +152,16 @@ function App() {
           <Route path="/ai-smart-class" element={<HomePage />} />
           <Route path="/about-ai-smart-class" element={<AboutAISmart />} />
           <Route path="/contact-ai-smart-class" element={<ContactAISmart />} />
-          <Route path="/doubt-solver" element={<DoubtSolver />} />
+
+          {/* <Route path="/doubt-solver" element={<DoubtSolver />} /> */}
+          <Route
+            path="/doubt-solver"
+            element={
+              <PrivateRoute>
+                <DoubtSolver />
+              </PrivateRoute>
+            }
+          />
           <Route path="/exam-paper-generator" element={<ExamPaperGenerator />} />
           <Route path="/smart-quiz-generator" element={<SmartQuizGenerator />} />
           <Route path="/performance-metrics" element={<PerformanceMetrics />} />
