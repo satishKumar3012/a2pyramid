@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const LoginWrapper = styled.div`
   display: flex;
@@ -120,6 +121,8 @@ const TempLogin = () => {
     if (username === 'Ady@a2pyramid' && password === 'water@a2py') {
       setError('');
       console.log('Login successful');
+      const token = Cookies.get('token_cookie');
+      console.log('Token from cookies:', token);
       navigate('/ai-smart-class');
     } else {
       setError('Invalid credentials. Please try again.');
