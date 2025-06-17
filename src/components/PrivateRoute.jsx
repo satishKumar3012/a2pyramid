@@ -1,34 +1,21 @@
-// src/components/PrivateRoute.jsx
-import { useEffect, useState } from 'react';
+import { useEffect } from "react";
+import Cookies from "js-cookie";
 
 const PrivateRoute = ({ children }) => {
-  const [allowed, setAllowed] = useState(null);
+  const admin_token = Cookies.get("admin_token");
+  const teacher_token = Cookies.get("teacher_token");
+  const student_token = Cookies.get("student_token");
+  const token = admin_token || teacher_token || student_token;
 
-  useEffect(() => {
-    const checkToken = async () => {
-      try {
-        const res = await fetch('https://a2pyramid.com/auth/verify-token', {
-          method: 'GET',
-          credentials: 'include', // Include cookies in request
-        });
+console.log("private route",token)
 
-        const data = await res.json();
-        setAllowed(data.valid);
-      } catch {
-        setAllowed(false);
-      }
-    };
+ useEffect(() => {
+    if (!token) {
+      window.location.href = "https://portal.a2pyramid.com/";
+    }
+  }, [token]);
 
-    checkToken();
-  }, []);
-
-  if (allowed === null) return <p>Checking authentication...</p>;
-  if (!allowed) {
-    window.location.href = 'https://portal.a2pyramid.com';
-    return null;
-  }
-
-  return children;
+  return token ? children : null;
 };
 
 export default PrivateRoute;
