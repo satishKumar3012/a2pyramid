@@ -157,9 +157,9 @@ function App() {
           <Route
             path="/doubt-solver"
             element={
-              <PrivateRoute>
+              // <PrivateRoute>
                 <DoubtSolver />
-              </PrivateRoute>
+              /* </PrivateRoute> */
             }
           />
           <Route path="/exam-paper-generator" element={<ExamPaperGenerator />} />
