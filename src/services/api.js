@@ -1,15 +1,17 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://ai-smart-class-py-backend.onrender.com'; // Change to your backend API URL
+//const BASE_URL = 'https://ai-smart-class-py-backend.onrender.com'; // Change to your backend API URL
 
+const BASE_URL = 'http://localhost:5001'; // Change to your backend API URL for local development
 // Function to generate exam paper
 export const generateExamPaper = async (classNum, subject, totalQuestions) => {
   try {
-    const response = await axios.post(`${BASE_URL}/exam/generate_exam`, {
+    const response = await axios.post(`${BASE_URL}/api/ai`, {
       class_num: classNum,
       subject: subject,
-      total_questions: totalQuestions
-    });
+      total_questions: totalQuestions,
+      feature: "exams" 
+    }, {withCredentials: true});
     return response.data.exam_paper;
   } catch (error) {
     console.error("Error generating exam paper", error);
@@ -20,11 +22,12 @@ export const generateExamPaper = async (classNum, subject, totalQuestions) => {
 // Function to generate revision notes
 export const generateRevisionNotes = async (classNum, subject, topics) => {
   try {
-    const response = await axios.post(`${BASE_URL}/revision/generate`, {
+    const response = await axios.post(`${BASE_URL}/api/ai`, {
       class_num: classNum,
       subject: subject,
-      topics: topics
-    });
+      topics: topics,
+      feature: "revision" // Specify the feature for revision notes
+    }, {withCredentials: true});
     return response.data.revision_notes;
   } catch (error) {
     console.error("Error generating revision notes", error);
@@ -35,11 +38,12 @@ export const generateRevisionNotes = async (classNum, subject, topics) => {
 // Function to generate quiz
 export const generateQuiz = async (classNum, subject, topics) => {
   try {
-    const response = await axios.post(`${BASE_URL}/quiz/generate`, {
+    const response = await axios.post(`${BASE_URL}/api/ai`, {
       class_num: classNum,
       subject: subject,
-      topics: topics
-    });
+      topics: topics,
+      feature: "quizzes" 
+    }, {withCredentials: true});
     return response.data.quizzes;
   } catch (error) {
     console.error("Error generating quiz", error);
@@ -50,7 +54,7 @@ export const generateQuiz = async (classNum, subject, topics) => {
 // Function to interact with the doubt solver assistant
 export const askDoubtSolver = async (question) => {
   try {
-    const response = await axios.post(`${BASE_URL}/chat/ask`, { question });
+    const response = await axios.post(`${BASE_URL}/api/ai`, { question, feature: "doubtSolving" }, {withCredentials: true});
     return response.data.answer;
   } catch (error) {
     console.error("Error asking doubt solver", error);
