@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { generateExamPaper } from '../services/api';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { generateExamPaper, getUsageStats } from "../services/api";
+import AnimatedNumber from "../components/AnimatedNumber";
 
 // Styled Components
 const Container = styled.div`
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #222;
 
   @media (max-width: 768px) {
@@ -106,51 +107,164 @@ const GeneratedPaper = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
+const UsageBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: linear-gradient(90deg, #e3f0ff 0%, #f8faff 100%);
+  border: 1.5px solid #007bff33;
+  border-radius: 12px;
+  padding: 0.75rem 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #1a237e;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.07);
+  letter-spacing: 0.5px;
+  min-width: 220px;
+`;
+
+const AnimatedNumberBox = styled.span`
+  display: inline-block;
+  background: linear-gradient(90deg, #e3f0ff 0%, #f8faff 100%);
+  border: 1.5px solid #007bff33;
+  border-radius: 8px;
+  padding: 0.3em 1em;
+  margin: 0 0.3em;
+  font-weight: 700;
+  font-size: 1.15em;
+  color: inherit;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.07);
+  letter-spacing: 0.5px;
+`;
+
+// Animated number component for usage/limit
+// const AnimatedNumber = ({ value, color }) => {
+//   const [display, setDisplay] = useState(value);
+//   const prevValue = useRef(value);
+
+//   useEffect(() => {
+//     if (prevValue.current === value) return;
+//     let start = prevValue.current;
+//     let end = value;
+//     let frame;
+//     const duration = 400;
+//     const startTime = performance.now();
+
+//     const animate = (now) => {
+//       const progress = Math.min((now - startTime) / duration, 1);
+//       const current = Math.round(start + (end - start) * progress);
+//       setDisplay(current);
+//       if (progress < 1) {
+//         frame = requestAnimationFrame(animate);
+//       } else {
+//         prevValue.current = value;
+//       }
+//     };
+
+//     frame = requestAnimationFrame(animate);
+//     return () => cancelAnimationFrame(frame);
+//   }, [value]);
+
+//   return (
+//     <span
+//       style={{
+//         color,
+//         transition: "color 0.3s, font-size 0.3s",
+//         fontWeight: 700,
+//         fontSize: "1.25em",
+//         filter: "drop-shadow(0 1px 2px #b3d1ff)",
+//       }}
+//     >
+//       {display}
+//     </span>
+//   );
+// };
+
 const ExamGenerator = () => {
-  const [classNum, setClassNum] = useState('');
-  const [subject, setSubject] = useState('');
+  const [classNum, setClassNum] = useState("");
+  const [subject, setSubject] = useState("");
   const [totalQuestions, setTotalQuestions] = useState(10);
   const [examPaper, setExamPaper] = useState([]);
-  const [errorMsg, setErrorMsg] = useState('');
+  const [errorMsg, setErrorMsg] = useState("");
+  const [usage, setUsage] = useState({ used: 0, limit: 0 });
 
   const handleGenerateExam = async () => {
     try {
-      const response = await generateExamPaper(classNum, subject, totalQuestions);
+      const response = await generateExamPaper(
+        classNum,
+        subject,
+        totalQuestions
+      );
 
       if (response && Array.isArray(response)) {
         setExamPaper(response);
-        setErrorMsg('');
+        setErrorMsg("");
+        fetchUsageStats();
       } else {
         setExamPaper([]);
-        setErrorMsg('No exam paper generated.');
+        setErrorMsg("No exam paper generated.");
       }
     } catch (error) {
       console.error("Error:", error);
       setExamPaper([]);
-      setErrorMsg('Error generating exam paper.');
+      setErrorMsg("Error generating exam paper.");
     }
   };
 
   const handleDownload = () => {
-    const textContent = examPaper.map(section => {
-      const questions = section.questions
-        .split('\n')
-        .filter(line => line.trim() !== '')
-        .map((q, idx) => `${idx + 1}. ${q.replace(/^\d+\.\s*/, '')}`)
-        .join('\n');
-      return `${section.difficulty} Questions:\n${questions}`;
-    }).join('\n\n');
+    const textContent = examPaper
+      .map((section) => {
+        const questions = section.questions
+          .split("\n")
+          .filter((line) => line.trim() !== "")
+          .map((q, idx) => `${idx + 1}. ${q.replace(/^\d+\.\s*/, "")}`)
+          .join("\n");
+        return `${section.difficulty} Questions:\n${questions}`;
+      })
+      .join("\n\n");
 
-    const blob = new Blob([textContent], { type: 'text/plain' });
-    const link = document.createElement('a');
+    const blob = new Blob([textContent], { type: "text/plain" });
+    const link = document.createElement("a");
     link.href = window.URL.createObjectURL(blob);
     link.download = `Class${classNum}_${subject}_ExamPaper.txt`;
     link.click();
   };
 
+  const fetchUsageStats = async () => {
+    try {
+      const response = await getUsageStats("exams");
+      if (response) {
+        setUsage({ used: response.used || 0, limit: response.limit || 0 });
+      }
+    } catch (error) {
+      console.error("Error fetching usage stats:", error);
+      setUsage({ used: 0, limit: 0 });
+    }
+  };
+
+  useEffect(() => {
+    fetchUsageStats();
+  }, []);
+
   return (
     <Container>
       <Title>📝 Generate Exam Paper</Title>
+
+      {/* Usage/Limit Display */}
+   <UsageBox style={{ background: "none", border: "none", boxShadow: "none", padding: 0, marginBottom: "1.5rem" }}>
+      Usage:{" "}
+      <AnimatedNumberBox>
+        <AnimatedNumber
+          value={usage.used}
+          color={usage.used >= usage.limit ? "#d32f2f" : "#007bff"}
+        />
+      </AnimatedNumberBox>
+      {" / "}
+      <AnimatedNumberBox>
+        <AnimatedNumber value={usage.limit} color="#007bff" />
+      </AnimatedNumberBox>
+    </UsageBox>
 
       <InputGroup>
         <Input
@@ -174,7 +288,7 @@ const ExamGenerator = () => {
       </InputGroup>
 
       <ButtonGroup>
-        <Button onClick={handleGenerateExam}>Generate</Button>
+        <Button disabled={usage.used >= usage.limit} onClick={handleGenerateExam}>Generate</Button>
         {examPaper.length > 0 && (
           <Button onClick={handleDownload}>Download as .txt</Button>
         )}
@@ -190,10 +304,10 @@ const ExamGenerator = () => {
                 <h4>{section.difficulty} Questions:</h4>
                 <ol>
                   {section.questions
-                    .split('\n')
-                    .filter(line => line.trim() !== '')
+                    .split("\n")
+                    .filter((line) => line.trim() !== "")
                     .map((question, i) => (
-                      <li key={i}>{question.replace(/^\d+\.\s*/, '')}</li>
+                      <li key={i}>{question.replace(/^\d+\.\s*/, "")}</li>
                     ))}
                 </ol>
               </PaperSection>

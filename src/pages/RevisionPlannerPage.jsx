@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { generateRevisionNotes } from '../services/api';
+import { generateRevisionNotes, getUsageStats } from '../services/api';
+import AnimatedNumber from "../components/AnimatedNumber";
 
-// Styled Components
 const Container = styled.div`
   max-width: 800px;
   margin: 0 auto;
@@ -96,16 +96,49 @@ const DownloadButton = styled(Button)`
   }
 `;
 
+const UsageBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: linear-gradient(90deg, #e3f0ff 0%, #f8faff 100%);
+  border: 1.5px solid #007bff33;
+  border-radius: 12px;
+  padding: 0.75rem 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #1a237e;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.07);
+  letter-spacing: 0.5px;
+  min-width: 220px;
+`;
+
+const AnimatedNumberBox = styled.span`
+  display: inline-block;
+  background: linear-gradient(90deg, #e3f0ff 0%, #f8faff 100%);
+  border: 1.5px solid #007bff33;
+  border-radius: 8px;
+  padding: 0.3em 1em;
+  margin: 0 0.3em;
+  font-weight: 700;
+  font-size: 1.15em;
+  color: inherit;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.07);
+  letter-spacing: 0.5px;
+`;
+
 const RevisionPlannerPage = () => {
   const [classNum, setClassNum] = useState('');
   const [subject, setSubject] = useState('');
   const [topics, setTopics] = useState('');
   const [revisionNotes, setRevisionNotes] = useState([]);
+    const [usage, setUsage] = useState({ used: 0, limit: 0 });
 
   const handleGenerateRevision = async () => {
     try {
       const notes = await generateRevisionNotes(classNum, subject, topics.split(','));
       setRevisionNotes(notes);
+      fetchUsageStats();
     } catch (error) {
       setRevisionNotes(['❌ Error generating revision notes. Please try again.'],error);
     }
@@ -121,9 +154,47 @@ const RevisionPlannerPage = () => {
     document.body.removeChild(link);
   };
 
+    const fetchUsageStats = async () => {
+      try {
+        const response = await getUsageStats("revision");
+        if (response) {
+          setUsage({ used: response.used || 0, limit: response.limit || 0 });
+        }
+      } catch (error) {
+        console.error("Error fetching usage stats:", error);
+        setUsage({ used: 0, limit: 0 });
+      }
+    };
+  
+    useEffect(() => {
+      fetchUsageStats();
+    }, []);
+
   return (
     <Container>
       <Title>📚 Generate Revision Planner</Title>
+
+ <UsageBox
+        style={{
+          background: "none",
+          border: "none",
+          boxShadow: "none",
+          padding: 0,
+          marginBottom: "1.5rem",
+        }}
+      >
+        Usage:{" "}
+        <AnimatedNumberBox>
+          <AnimatedNumber
+            value={usage.used}
+            color={usage.used >= usage.limit ? "#d32f2f" : "#007bff"}
+          />
+        </AnimatedNumberBox>
+        {" / "}
+        <AnimatedNumberBox>
+          <AnimatedNumber value={usage.limit} color="#007bff" />
+        </AnimatedNumberBox>
+      </UsageBox>
 
       <InputGroup>
         <Input
@@ -147,7 +218,7 @@ const RevisionPlannerPage = () => {
       </InputGroup>
 
       <div style={{ textAlign: 'center' }}>
-        <Button onClick={handleGenerateRevision}>Generate</Button>
+        <Button disabled={usage.used >= usage.limit} onClick={handleGenerateRevision}>Generate</Button>
       </div>
 
       {revisionNotes.length > 0 && (

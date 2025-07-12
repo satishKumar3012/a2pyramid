@@ -61,3 +61,13 @@ export const askDoubtSolver = async (question) => {
     throw error;
   }
 };
+
+export const getUsageStats = async (feature) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/api/ai/usage/${feature}`, {withCredentials: true});
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching usage stats", error);
+    throw error;
+  }
+}
