@@ -11,7 +11,7 @@ console.log("private route",token)
 
  useEffect(() => {
     if (!token) {
-      window.location.href = import.meta.env.VITE_BACKEND_BASE_URL;
+      window.location.href = import.meta.env.VITE_DASHBOARD_URL;
     }
   }, [token]);
 
