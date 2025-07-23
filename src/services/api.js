@@ -2,7 +2,7 @@ import axios from 'axios';
 
 //const BASE_URL = 'https://ai-smart-class-py-backend.onrender.com'; // Change to your backend API URL
 
-const BASE_URL = 'http://localhost:5001'; // Change to your backend API URL for local development
+const BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL; // Change to your backend API URL for local development
 // Function to generate exam paper
 export const generateExamPaper = async (classNum, subject, totalQuestions) => {
   try {

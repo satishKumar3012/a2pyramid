@@ -11,7 +11,7 @@ console.log("private route",token)
 
  useEffect(() => {
     if (!token) {
-      window.location.href = "https://portal.a2pyramid.com/";
+      window.location.href = import.meta.env.VITE_BACKEND_BASE_URL;
     }
   }, [token]);
 
