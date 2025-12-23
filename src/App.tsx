@@ -24,6 +24,12 @@ const ContactA2Pyramid = React.lazy(() => import('./pages/ContactA2Pyramid'));
 const FAQPage = React.lazy(() => import('./pages/FAQPage'));
 const FridayPage = React.lazy(() => import('./pages/FridayPage'));
 const PlatformsPage = React.lazy(() => import('./pages/PlatformsPage'));
+const EdTech = React.lazy(() => import('./pages/EdTech'));
+const WebDevCourse = React.lazy(() => import('./pages/courses/WebDevCourse'));
+const AiMlCourse = React.lazy(() => import('./pages/courses/AiMlCourse'));
+const DevOpsCourse = React.lazy(() => import('./pages/courses/DevOpsCourse'));
+const DataAnalyticsCourse = React.lazy(() => import('./pages/courses/DataAnalyticsCourse'));
+const AutomationCourse = React.lazy(() => import('./pages/courses/AutomationCourse'));
 
 const HomePage = () => (
   <div className="home-page">
@@ -92,6 +98,12 @@ function App() {
                 <Route path="/friday" element={<FridayPage />} />
                 <Route path="/platforms" element={<PlatformsPage />} />
                 <Route path="/mmt-sales" element={<MMTSalesPage />} />
+                <Route path="/edtech" element={<EdTech />} />
+                <Route path="/edtech/web-dev" element={<WebDevCourse />} />
+                <Route path="/edtech/ai-ml" element={<AiMlCourse />} />
+                <Route path="/edtech/devops" element={<DevOpsCourse />} />
+                <Route path="/edtech/data-analytics" element={<DataAnalyticsCourse />} />
+                <Route path="/edtech/automation" element={<AutomationCourse />} />
                 <Route path="*" element={<HomePage />} />
               </Routes>
             </Suspense>

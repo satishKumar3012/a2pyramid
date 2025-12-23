@@ -40,10 +40,10 @@ export const PLATFORMS: Platform[] = [
     id: 'edutech',
     name: 'EdTech Training Platform',
     description: 'Comprehensive learning management system for educational institutions',
-    href: 'https://a2pyramid.com/#/edutech',
+    href: '/edtech',
     icon: 'GraduationCap',
     category: 'education',
-    isExternal: true,
+    isExternal: false,
     features: ['LMS', 'Virtual Classrooms', 'Assessment Tools', 'Progress Tracking']
   },
   {

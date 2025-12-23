@@ -161,9 +161,9 @@ const Platforms = () => {
                   if (platform.title === 'Map My Teacher') {
                     window.open('https://mmt.a2pyramid.com/', '_blank', 'noopener,noreferrer');
                   } else if (platform.title === 'EdTech / Training Platform') {
-                    window.open('https://a2pyramid.com/#/edutech', '_blank', 'noopener,noreferrer');
+                    window.location.href = '/edtech';
                   } else if (platform.title === 'AI Smart') {
-                    window.open('https://a2pyramid.com/#/ai-smart-class', '_blank', 'noopener,noreferrer');
+                    window.open('https://demo.a2pyramid.com/', '_blank', 'noopener,noreferrer');
                   } else if (platform.title === 'Friday – AI Electronics') {
                     window.location.href = '/friday';
                   } else if (platform.title === 'Automation & Development') {
