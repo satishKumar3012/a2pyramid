@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
 
-# Sitemap
 Sitemap: https://a2pyramid.com/sitemap.xml
 
-# Crawl-delay
-Crawl-delay: 1
+# Disallow duplicate content
+Disallow: /*?*
+Disallow: /#/

@@ -30,6 +30,7 @@ const AiMlCourse = React.lazy(() => import('./pages/courses/AiMlCourse'));
 const DevOpsCourse = React.lazy(() => import('./pages/courses/DevOpsCourse'));
 const DataAnalyticsCourse = React.lazy(() => import('./pages/courses/DataAnalyticsCourse'));
 const AutomationCourse = React.lazy(() => import('./pages/courses/AutomationCourse'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 const HomePage = () => (
   <div className="home-page">
@@ -104,7 +105,7 @@ function App() {
                 <Route path="/edtech/devops" element={<DevOpsCourse />} />
                 <Route path="/edtech/data-analytics" element={<DataAnalyticsCourse />} />
                 <Route path="/edtech/automation" element={<AutomationCourse />} />
-                <Route path="*" element={<HomePage />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
             

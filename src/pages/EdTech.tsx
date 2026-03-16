@@ -18,7 +18,6 @@ import {
   ArrowRight,
   Star,
   Target,
-  BookOpen,
   Zap
 } from 'lucide-react';
 
@@ -80,109 +79,6 @@ const EdTech = () => {
       popular: false
     }
   ];
-
-  const syllabusData = {
-    'web-dev': {
-      modules: [
-        {
-          title: 'Data Structures & Algorithms (DSA)',
-          topics: ['Arrays, Strings, Linked Lists', 'Stacks, Queues', 'Trees & Graphs', 'Sorting & Searching', 'Time & Space Complexity', 'Problem-solving sessions']
-        },
-        {
-          title: 'Frontend Development',
-          topics: ['HTML5 & Semantic Markup', 'CSS3 & Modern Styling', 'JavaScript & ES6+', 'React & Component Architecture', 'State Management', 'Responsive Design']
-        },
-        {
-          title: 'Backend Development',
-          topics: ['Node.js & Express', 'RESTful APIs', 'Database Design', 'Authentication & Security', 'Server Deployment', 'Performance Optimization']
-        },
-        {
-          title: 'Full-Stack Projects',
-          topics: ['E-commerce Platform', 'Social Media App', 'Portfolio Website', 'Real-time Chat Application', 'Code Reviews', 'Industry Best Practices']
-        }
-      ]
-    },
-    'ai-ml': {
-      modules: [
-        {
-          title: 'Data Structures & Algorithms (DSA)',
-          topics: ['Arrays, Strings, Linked Lists', 'Stacks, Queues', 'Trees & Graphs', 'Sorting & Searching', 'Time & Space Complexity', 'Problem-solving sessions']
-        },
-        {
-          title: 'Python for AI',
-          topics: ['Python Fundamentals', 'NumPy & Pandas', 'Data Manipulation', 'Scientific Computing', 'Libraries & Frameworks', 'Code Optimization']
-        },
-        {
-          title: 'Machine Learning',
-          topics: ['Supervised Learning', 'Unsupervised Learning', 'Model Training & Evaluation', 'Feature Engineering', 'Cross-validation', 'Hyperparameter Tuning']
-        },
-        {
-          title: 'Industry Applications',
-          topics: ['Computer Vision', 'Natural Language Processing', 'Recommendation Systems', 'Predictive Analytics', 'Model Deployment', 'MLOps Practices']
-        }
-      ]
-    },
-    'devops': {
-      modules: [
-        {
-          title: 'Data Structures & Algorithms (DSA)',
-          topics: ['Arrays, Strings, Linked Lists', 'Stacks, Queues', 'Trees & Graphs', 'Sorting & Searching', 'Time & Space Complexity', 'Problem-solving sessions']
-        },
-        {
-          title: 'Infrastructure Fundamentals',
-          topics: ['Linux Administration', 'Networking Concepts', 'System Architecture', 'Security Practices', 'Performance Monitoring', 'Troubleshooting']
-        },
-        {
-          title: 'CI/CD & Automation',
-          topics: ['Git & Version Control', 'Jenkins & Pipelines', 'Docker & Containerization', 'Kubernetes Orchestration', 'Infrastructure as Code', 'Automated Testing']
-        },
-        {
-          title: 'Cloud & Deployment',
-          topics: ['AWS/Azure Basics', 'Cloud Architecture', 'Monitoring & Logging', 'Scalability Planning', 'Disaster Recovery', 'Cost Optimization']
-        }
-      ]
-    },
-    'data-analytics': {
-      modules: [
-        {
-          title: 'Data Structures & Algorithms (DSA)',
-          topics: ['Arrays, Strings, Linked Lists', 'Stacks, Queues', 'Trees & Graphs', 'Sorting & Searching', 'Time & Space Complexity', 'Problem-solving sessions']
-        },
-        {
-          title: 'Data Fundamentals',
-          topics: ['Excel Advanced Functions', 'Data Cleaning Techniques', 'Statistical Analysis', 'Data Types & Formats', 'Quality Assessment', 'Data Governance']
-        },
-        {
-          title: 'Analytics Tools',
-          topics: ['SQL for Data Analysis', 'Python for Analytics', 'Tableau/Power BI', 'Data Visualization', 'Dashboard Creation', 'Report Automation']
-        },
-        {
-          title: 'Business Analytics',
-          topics: ['KPI Development', 'Business Intelligence', 'Predictive Modeling', 'Market Analysis', 'Customer Segmentation', 'ROI Measurement']
-        }
-      ]
-    },
-    'automation': {
-      modules: [
-        {
-          title: 'Data Structures & Algorithms (DSA)',
-          topics: ['Arrays, Strings, Linked Lists', 'Stacks, Queues', 'Trees & Graphs', 'Sorting & Searching', 'Time & Space Complexity', 'Problem-solving sessions']
-        },
-        {
-          title: 'Testing Fundamentals',
-          topics: ['Software Testing Principles', 'Test Case Design', 'Bug Lifecycle', 'Quality Assurance', 'Testing Methodologies', 'Documentation Standards']
-        },
-        {
-          title: 'Automation Frameworks',
-          topics: ['Selenium WebDriver', 'TestNG/JUnit', 'Page Object Model', 'Data-Driven Testing', 'Keyword-Driven Testing', 'Hybrid Frameworks']
-        },
-        {
-          title: 'CI/CD Integration',
-          topics: ['Jenkins Integration', 'Git Version Control', 'Automated Reporting', 'Continuous Testing', 'Performance Testing', 'API Testing']
-        }
-      ]
-    }
-  };
 
   const benefits = [
     {
@@ -315,7 +211,7 @@ const EdTech = () => {
                     className="px-4 py-2 rounded-lg font-semibold transition-colors duration-300"
                     style={{ backgroundColor: program.color, color: 'white' }}
                     onClick={() => {
-                      const routeMap = {
+                      const routeMap: Record<string, string> = {
                         'web-dev': '/edtech/web-dev',
                         'ai-ml': '/edtech/ai-ml', 
                         'devops': '/edtech/devops',
