@@ -24,7 +24,7 @@ const Chatbot = () => {
     'ai smart': 'AI Smart provides automated solutions for educational institutes including exam generation, doubt solving, revision planning, and personalized learning support.',
     'friday': 'Friday is our AI-enabled electronics product line designed to respond dynamically, adapt to user behavior, and perform intelligent tasks in real-time.',
     'automation': 'We provide AI automation services, web development, and custom software solutions to streamline business processes and reduce operational costs.',
-    'contact': 'You can reach us at +91 947299483, email a2pyramidedutech@gmail.com, or visit our office at Tilak Nagar Bailey Road, Patna - 800014.',
+    'contact': 'You can reach us at +91 9472994483, email a2pyramidedutech@gmail.com, or visit our office at Tilak Nagar Bailey Road, Patna - 800014.',
     'courses': 'We offer courses in AI, Machine Learning, Web Development, and Automation designed for beginners to advanced levels with certifications and career guidance.',
     'demo': 'Yes! You can request demo classes on Map My Teacher or book a consultation for our other platforms. Would you like me to guide you to the contact page?'
   };
@@ -62,7 +62,7 @@ const Chatbot = () => {
       return 'I\'m here to help! I can provide information about A2 Pyramid\'s platforms: EdTech courses, Map My Teacher, AI Smart tools, Friday electronics, and automation services. What interests you?';
     }
 
-    return 'I\'d be happy to help! I can provide information about A2 Pyramid\'s platforms, courses, and services. You can also contact our team directly at +91 947299483 for detailed assistance.';
+    return 'I\'d be happy to help! I can provide information about A2 Pyramid\'s platforms, courses, and services. You can also contact our team directly at +91 9472994483 for detailed assistance.';
   };
 
   const handleSendMessage = () => {

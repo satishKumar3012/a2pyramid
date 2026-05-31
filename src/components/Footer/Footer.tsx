@@ -33,7 +33,7 @@ const Footer = () => {
 
   const contactInfo = [
     { icon: <Mail size={16} />, text: 'a2pyramidedutech@gmail.com', href: 'mailto:a2pyramidedutech@gmail.com' },
-    { icon: <Phone size={16} />, text: '+91 947299483', href: 'tel:+91947299483' },
+    { icon: <Phone size={16} />, text: '+91 9472994483', href: 'tel:+919472994483' },
     { icon: <MapPin size={16} />, text: 'Tilak Nagar Bailey Road, Patna - 800014' }
   ];
 

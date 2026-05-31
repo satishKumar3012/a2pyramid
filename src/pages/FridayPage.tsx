@@ -507,7 +507,7 @@ const FridayPage = () => {
                 <div className="contact-info">
                   <div className="contact-item">
                     <Phone size={20} />
-                    <span>+91 947299483</span>
+                    <span>+91 9472994483</span>
                   </div>
                   <div className="contact-item">
                     <Mail size={20} />

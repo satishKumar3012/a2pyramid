@@ -27,8 +27,8 @@ const ContactA2Pyramid = () => {
     {
       icon: <Phone size={24} />,
       title: 'Phone',
-      content: '+91 947299483',
-      link: 'tel:+91947299483'
+      content: '+91 9472994483',
+      link: 'tel:+919472994483'
     },
     {
       icon: <MapPin size={24} />,
